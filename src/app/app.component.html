@@ -1,0 +1,35 @@
+<div class="top-menu">
+  <button mat-raised-button color="primary" (click)="onAddStep()">New Step</button>
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="newLaneMenu">
+      New Lane
+      <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+    <mat-menu #newLaneMenu="matMenu">
+      <button mat-menu-item *ngFor="let channelType of channelTypes"
+          (click)="onAddChannel(channelType)"
+        >{{channelType}}</button>
+    </mat-menu>
+</div>
+<div class="flex-container">
+  <ngx-datatable 
+      class="main-area material selection-cell"
+      [rows]="rows" 
+      [selected]="selected"
+      [selectionType]="SelectionType.cell"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      [columnMode]="ColumnMode.force"
+    >
+    <ngx-datatable-column *ngFor="let col of columns" 
+        [prop]="col.prop" 
+        [name] = "col.name" 
+        [maxWidth]="col.name==='Nr'?30:null"
+        [sortable]="false">
+      <!-- <ng-template let-column="column" ngx-datatable-header-template>{{ column.name }} </ng-template> -->
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{ value.description || value.rowNumber }}
+      </ng-template>  
+    </ngx-datatable-column>
+  </ngx-datatable>
+  <app-channel-step-details *ngIf="selectedChannelStep?.stepNumber" class="side-panel" [channelStep]="selectedChannelStep"></app-channel-step-details>
+</div> 

@@ -1,0 +1,37 @@
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+:host ::ng-deep {
+
+  .selection-cell datatable-body-cell.active {
+      background: #587086b9 !important;
+      color: #fff !important;
+    }
+
+  .datatable-body-row.datatable-row-even {
+      background-color: rgba(0,0,0,.05);
+  }
+
+  .top-menu button{
+      margin: 5px 0px 5px 5px;
+  }
+
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+
+    .main-area{
+      flex: 1 100%;
+      padding: 5px;
+    }
+
+    .side-panel{
+      max-width: 150px;
+      min-width: 150px;
+      padding: 10px;
+    }
+  }
+  
+}

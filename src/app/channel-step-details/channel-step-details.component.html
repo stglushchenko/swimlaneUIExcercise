@@ -1,0 +1,23 @@
+<h4>Edit {{channelStep.channelType}}, step {{channelStep.stepNumber}}</h4>
+
+<label for="description">Description</label>
+<input type="text" id="description" [(ngModel)]="channelStep.description">
+<div [ngSwitch]="channelStep?.channelType">
+    <div *ngSwitchCase="ChannelType.Voice">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" [(ngModel)]="channelStep.phoneNumber">
+        <label for="expectToHear">Expect to hear</label>
+        <input type="text" id="expectToHear" [(ngModel)]="channelStep.expectToHear">
+        <label for="expectToHear">Reply</label>
+        <input type="text" id="reply" [(ngModel)]="channelStep.reply">
+    </div>
+    <div *ngSwitchCase="ChannelType.Email">
+
+    </div>
+    <div *ngSwitchCase="ChannelType.SMS">
+
+    </div>
+    <div *ngSwitchCase="ChannelType.Web">
+
+    </div>
+</div>
